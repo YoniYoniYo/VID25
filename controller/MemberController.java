@@ -200,7 +200,7 @@ public class MemberController {
 	}
 	
 // 주문내역
-	//조회
+	// 주문내역 조회
 	@RequestMapping(value = "/purchase_history.adm")
 	public ModelAndView searchPurchaseHistory(
 			@RequestParam(value="mid", required=false) String mid,
@@ -237,5 +237,16 @@ public class MemberController {
 		
 		return mnv;
 	}
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         	
+	// 주문내역 삽입
+	
+	// 주문내역 수정
+	
+	// 주문내역 삭제
+	@RequestMapping(value="/delete_order.adm")
+	public String delete(@RequestParam("order_no") String order_no) {
+		phdao.getOneOrder(order_no);	
+		phdao.deletePurchaseHistory(order_no);
+		return "redirect:/purchase_history.adm";
+	}
 }
